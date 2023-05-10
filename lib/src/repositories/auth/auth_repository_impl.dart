@@ -18,7 +18,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<AuthModel> login(String email, String password) async {
     try {
       final result = await _dio.unauth().post(
-        '/login',
+        '/auth',
         data: {
           'email': email,
           'password': password,

@@ -54,6 +54,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
   void dispose() {
     _emailEC.dispose();
     _passwordEC.dispose();
+    statusReactionDisposer();
     super.dispose();
   }
 
@@ -124,29 +125,23 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                             Validatorless.required('E-mail é obrigatório'),
                             Validatorless.email('E-mail inválido'),
                           ]),
+                          onFieldSubmitted: (_) => _formSubmit(),
                         ),
                         const SizedBox(height: 20),
                         TextFormField(
                           controller: _passwordEC,
+                          obscureText: true,
                           decoration: const InputDecoration(labelText: 'Senha'),
                           validator:
                               Validatorless.required('Senha é obrigatória'),
+                          onFieldSubmitted: (_) => _formSubmit(),
                         ),
                         const SizedBox(height: 40),
                         SizedBox(
                           width: double.infinity,
                           height: 50,
                           child: ElevatedButton(
-                            onPressed: () {
-                              final formValid =
-                                  formKey.currentState?.validate() ?? false;
-                              if (formValid) {
-                                controller.login(
-                                  _emailEC.text,
-                                  _passwordEC.text,
-                                );
-                              }
-                            },
+                            onPressed: () => _formSubmit(),
                             child: const Text('Entrar'),
                           ),
                         )
@@ -160,5 +155,15 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
         ),
       ),
     );
+  }
+
+  void _formSubmit() {
+    final formValid = formKey.currentState?.validate() ?? false;
+    if (formValid) {
+      controller.login(
+        _emailEC.text,
+        _passwordEC.text,
+      );
+    }
   }
 }
