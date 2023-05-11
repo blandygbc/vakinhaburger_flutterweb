@@ -9,6 +9,12 @@
     ],
     "adm_users": [
         {
+            "id": 1,
+            "name": "Gabriel Blandy",
+            "email": "gabriel@email.com",
+            "password": "123123"
+        },
+        {
             "id": 2,
             "name": "Rodrigo Rahman",
             "email": "rodrigorahman@academiadoflutter.com.br",
