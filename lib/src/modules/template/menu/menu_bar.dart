@@ -14,14 +14,14 @@ class MenuBar extends StatefulWidget {
 
 class _MenuBarState extends State<MenuBar> {
   Menu? selectedMenu;
-  bool colapsed = false;
+  bool colapsed = true;
 
   @override
   Widget build(BuildContext context) {
+    final percentWidthValue = context.screenWidth > 1100 ? .18 : .30;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      //!TODO: Arrumar o percent para verifiar telas menores que mil aplicando o tamanho correto
-      width: colapsed ? 80 : context.percentWidth(.18),
+      width: colapsed ? 80 : context.percentWidth(percentWidthValue),
       height: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.max,

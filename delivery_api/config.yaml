@@ -9,10 +9,10 @@ auth:
    unauthorizedStatusCode: 401
    urlSkip:
       - /images/:
-         method: get
+           method: get
       - /users:
-         method: post
+           method: post
       - /products:
-         method: get
+           method: get
       - /products/{*}:
-          method: get
+           method: get

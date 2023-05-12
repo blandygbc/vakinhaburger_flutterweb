@@ -16,7 +16,7 @@ class PaymentTypeRepositoryImpl implements PaymentTypeRepository {
   Future<List<PaymentTypeModel>> findAll(bool? enabled) async {
     try {
       final paymentResponse = await _dio.auth().get(
-        '/payment-type',
+        '/payment-types',
         queryParameters: {
           if (enabled != null) 'enabled': enabled,
         },
@@ -34,13 +34,14 @@ class PaymentTypeRepositoryImpl implements PaymentTypeRepository {
   Future<PaymentTypeModel> getById(int id) async {
     try {
       final paymentResponse = await _dio.auth().get(
-            '/payment-type/$id',
+            '/payment-types/$id',
           );
       return PaymentTypeModel.fromMap(paymentResponse.data);
     } on DioError catch (e, s) {
       log('Erro ao buscar formas de pagamento de $id', error: e, stackTrace: s);
       throw RepositoryException(
-          message: 'Erro ao buscar formas de pagamento de $id');
+        message: 'Erro ao buscar formas de pagamento de $id',
+      );
     }
   }
 
@@ -50,12 +51,12 @@ class PaymentTypeRepositoryImpl implements PaymentTypeRepository {
       final client = _dio.auth();
       if (paymentTypeModel.id != null) {
         await client.put(
-          '/payment-type/${paymentTypeModel.id}',
+          '/payment-types/${paymentTypeModel.id}',
           data: paymentTypeModel.toJson(),
         );
       } else {
         await client.post(
-          '/payment-type',
+          '/payment-types',
           data: paymentTypeModel.toJson(),
         );
       }

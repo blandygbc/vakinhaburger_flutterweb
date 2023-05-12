@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
       height: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(20),
         ),
       ),
