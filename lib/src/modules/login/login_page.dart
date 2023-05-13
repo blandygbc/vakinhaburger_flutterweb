@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                           fit: BoxFit.scaleDown,
                           child: Text(
                             'Login',
-                            style: context.textStyles.textTitle,
+                            style: context.textStyles.title,
                           ),
                         ),
                         const SizedBox(height: 20),

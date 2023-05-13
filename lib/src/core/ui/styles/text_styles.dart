@@ -12,33 +12,33 @@ class TextStyles {
 
   String get fontFamily => 'mplus1';
 
-  TextStyle get textLight => TextStyle(
+  TextStyle get light => TextStyle(
         fontWeight: FontWeight.w300,
         fontFamily: fontFamily,
       );
-  TextStyle get textRegular => TextStyle(
+  TextStyle get regular => TextStyle(
         fontWeight: FontWeight.normal,
         fontFamily: fontFamily,
       );
-  TextStyle get textMedium => TextStyle(
+  TextStyle get medium => TextStyle(
         fontWeight: FontWeight.w500,
         fontFamily: fontFamily,
       );
-  TextStyle get textSemiBold => TextStyle(
+  TextStyle get semiBold => TextStyle(
         fontWeight: FontWeight.w600,
         fontFamily: fontFamily,
       );
-  TextStyle get textBold => TextStyle(
+  TextStyle get bold => TextStyle(
         fontWeight: FontWeight.bold,
         fontFamily: fontFamily,
       );
-  TextStyle get textExtraBold => TextStyle(
+  TextStyle get extraBold => TextStyle(
         fontWeight: FontWeight.w800,
         fontFamily: fontFamily,
       );
 
-  TextStyle get textButtonLabel => textBold.copyWith(fontSize: 14);
-  TextStyle get textTitle => textExtraBold.copyWith(fontSize: 22);
+  TextStyle get buttonLabel => bold.copyWith(fontSize: 14);
+  TextStyle get title => extraBold.copyWith(fontSize: 22);
 }
 
 extension TextStylesExtensions on BuildContext {

@@ -49,13 +49,13 @@ class PaymentTypeItem extends StatelessWidget {
                     children: [
                       Text(
                         'Formas de Pagamento',
-                        style: context.textStyles.textRegular
+                        style: context.textStyles.regular
                             .copyWith(color: enabledColor),
                       ),
                       const SizedBox(height: 10),
                       Text(
                         payment.name.trim(),
-                        style: context.textStyles.textTitle
+                        style: context.textStyles.title
                             .copyWith(color: enabledColor),
                       ),
                     ],
@@ -74,7 +74,7 @@ class PaymentTypeItem extends StatelessWidget {
                   },
                   child: Text(
                     'Editar',
-                    style: context.textStyles.textMedium,
+                    style: context.textStyles.medium,
                   ),
                 ),
               ],

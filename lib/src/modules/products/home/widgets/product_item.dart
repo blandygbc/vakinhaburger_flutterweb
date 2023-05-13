@@ -46,7 +46,7 @@ class ProductItem extends StatelessWidget {
                     product.name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: context.textStyles.textMedium,
+                    style: context.textStyles.medium,
                   ),
                 ),
               ),

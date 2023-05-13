@@ -70,8 +70,8 @@ class MenuButton extends StatelessWidget {
                         menu.label,
                         overflow: TextOverflow.ellipsis,
                         style: (isSelected
-                            ? context.textStyles.textBold
-                            : context.textStyles.textRegular),
+                            ? context.textStyles.bold
+                            : context.textStyles.regular),
                       ),
                     ),
                   ],

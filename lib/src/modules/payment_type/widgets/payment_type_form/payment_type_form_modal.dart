@@ -64,7 +64,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
                     child: Text(
                       '${widget.model == null ? 'Adicionar' : 'Editar'} forma de pagamento',
                       textAlign: TextAlign.center,
-                      style: context.textStyles.textTitle,
+                      style: context.textStyles.title,
                     ),
                   ),
                   Align(
@@ -95,7 +95,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
               const SizedBox(height: 20),
               Row(
                 children: [
-                  Text('Ativo', style: context.textStyles.textRegular),
+                  Text('Ativo', style: context.textStyles.regular),
                   Switch(
                     value: enabled,
                     onChanged: (value) {
@@ -122,7 +122,7 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
                       ),
                       child: Text(
                         'Cancelar',
-                        style: context.textStyles.textExtraBold
+                        style: context.textStyles.extraBold
                             .copyWith(color: Colors.red),
                       ),
                     ),

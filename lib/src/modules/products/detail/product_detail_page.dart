@@ -101,7 +101,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     child: Text(
                       '${widget.productId != null ? 'ALTERAR' : 'ADICIONAR'} PRODUTO',
                       textAlign: TextAlign.center,
-                      style: context.textStyles.textTitle.copyWith(
+                      style: context.textStyles.title.copyWith(
                         decoration: TextDecoration.underline,
                         decorationThickness: 2,
                       ),
@@ -222,7 +222,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                                     },
                                     child: Text(
                                       'Cancelar',
-                                      style: context.textStyles.textBold
+                                      style: context.textStyles.bold
                                           .copyWith(color: Colors.red),
                                     ),
                                   ),
@@ -233,7 +233,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                                     },
                                     child: Text(
                                       'Confirmar',
-                                      style: context.textStyles.textBold,
+                                      style: context.textStyles.bold,
                                     ),
                                   ),
                                 ],
@@ -243,7 +243,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                         },
                         child: Text(
                           'Deletar',
-                          style: context.textStyles.textBold.copyWith(
+                          style: context.textStyles.bold.copyWith(
                             color: Colors.red,
                           ),
                         ),
@@ -275,7 +275,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                       },
                       child: Text(
                         'Salvar',
-                        style: context.textStyles.textBold,
+                        style: context.textStyles.bold,
                       ),
                     ),
                   ),

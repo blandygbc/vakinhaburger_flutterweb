@@ -14,7 +14,7 @@ class BaseHeader extends StatelessWidget {
     super.key,
     required this.title,
     this.searchChange,
-    required this.buttonLabel,
+    this.buttonLabel = '',
     this.buttonPressed,
     this.addButton = true,
     this.filterWidget,
@@ -42,7 +42,7 @@ class BaseHeader extends StatelessWidget {
                     ),
                     label: Text(
                       'Buscar',
-                      style: context.textStyles.textRegular.copyWith(
+                      style: context.textStyles.regular.copyWith(
                         fontSize: 12,
                         color: Colors.grey,
                       ),
@@ -57,7 +57,7 @@ class BaseHeader extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: context.textStyles.textTitle.copyWith(
+                style: context.textStyles.title.copyWith(
                   decoration: TextDecoration.underline,
                   decorationThickness: 2,
                 ),
