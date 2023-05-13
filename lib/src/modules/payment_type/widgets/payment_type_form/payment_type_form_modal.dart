@@ -3,7 +3,7 @@ import 'package:validatorless/validatorless.dart';
 
 import '../../../../core/ui/helpers/size_extensions.dart';
 import '../../../../core/ui/styles/text_styles.dart';
-import '../../../../models/payment_type/payment_type_model.dart';
+import '../../../../models/payment_type_model.dart';
 import '../../payment_type_controller.dart';
 
 class PaymentTypeFormModal extends StatefulWidget {

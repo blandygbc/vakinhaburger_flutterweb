@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:mobx/mobx.dart';
 
-import '../../models/payment_type/payment_type_model.dart';
+import '../../models/payment_type_model.dart';
 import '../../repositories/payment_type/payment_type_repository.dart';
 part 'payment_type_controller.g.dart';
 

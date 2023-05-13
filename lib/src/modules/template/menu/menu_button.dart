@@ -21,7 +21,7 @@ class MenuButton extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constrains) {
         return Visibility(
-          visible: constrains.maxWidth != 90,
+          visible: constrains.maxWidth > 90,
           replacement: Container(
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.all(5),
@@ -69,9 +69,9 @@ class MenuButton extends StatelessWidget {
                       child: Text(
                         menu.label,
                         overflow: TextOverflow.ellipsis,
-                        style: isSelected
+                        style: (isSelected
                             ? context.textStyles.textBold
-                            : context.textStyles.textRegular,
+                            : context.textStyles.textRegular),
                       ),
                     ),
                   ],

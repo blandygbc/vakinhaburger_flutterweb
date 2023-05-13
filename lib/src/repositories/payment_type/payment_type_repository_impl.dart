@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 import '../../core/exceptions/repository_exception.dart';
 import '../../core/rest_client/custom_dio.dart';
-import '../../models/payment_type/payment_type_model.dart';
+import '../../models/payment_type_model.dart';
 import './payment_type_repository.dart';
 
 class PaymentTypeRepositoryImpl implements PaymentTypeRepository {

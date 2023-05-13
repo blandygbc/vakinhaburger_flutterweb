@@ -1,4 +1,4 @@
-import '../../models/payment_type/payment_type_model.dart';
+import '../../models/payment_type_model.dart';
 
 abstract class PaymentTypeRepository {
   Future<List<PaymentTypeModel>> findAll(bool? enabled);

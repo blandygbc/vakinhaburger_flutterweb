@@ -48,6 +48,7 @@ mixin Messages<T extends StatefulWidget> on State<T> {
         elevation: 0,
         behavior: SnackBarBehavior.floating,
         padding: const EdgeInsets.only(top: 72),
+        backgroundColor: Colors.transparent,
         content: content,
       ),
     );
