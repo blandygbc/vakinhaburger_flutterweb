@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/extensions/formatter_extensions.dart';
 import '../../../core/ui/helpers/size_extensions.dart';
 import '../../../core/ui/styles/text_styles.dart';
+import 'widgets/order_bottom_bar.dart';
 import 'widgets/order_info_tile.dart';
 import 'widgets/order_product_item.dart';
 
@@ -104,6 +105,7 @@ class _OrderDetailModalState extends State<OrderDetailModal> {
                 ),
                 const Divider(),
                 const SizedBox(height: 20),
+                const OrderBottomBar(),
               ],
             ),
           ),
