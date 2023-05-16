@@ -57,22 +57,20 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
           key: formKey,
           child: Column(
             children: [
-              Stack(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.center,
+                  Expanded(
                     child: Text(
-                      '${widget.model == null ? 'Adicionar' : 'Editar'} forma de pagamento',
+                      '${widget.model == null ? 'Adicionar' : 'Editar'} forma de pagamento'
+                          .toUpperCase(),
                       textAlign: TextAlign.center,
                       style: context.textStyles.title,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: InkWell(
-                      onTap: () => closeModal(),
-                      child: const Icon(Icons.close),
-                    ),
+                  InkWell(
+                    onTap: () => closeModal(),
+                    child: const Icon(Icons.close),
                   ),
                 ],
               ),
@@ -106,7 +104,10 @@ class _PaymentTypeFormModalState extends State<PaymentTypeFormModal> {
                   ),
                 ],
               ),
-              const Divider(),
+              Divider(
+                color: Colors.grey.shade400,
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

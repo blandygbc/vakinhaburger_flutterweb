@@ -13,8 +13,11 @@ class OrderDetailModal extends StatefulWidget {
   final OrderController controller;
   final OrderDto order;
 
-  const OrderDetailModal(
-      {super.key, required this.controller, required this.order});
+  const OrderDetailModal({
+    super.key,
+    required this.controller,
+    required this.order,
+  });
 
   @override
   State<OrderDetailModal> createState() => _OrderDetailModalState();
@@ -74,7 +77,9 @@ class _OrderDetailModalState extends State<OrderDetailModal> {
                     ),
                   ],
                 ),
-                const Divider(),
+                const Divider(
+                  height: 35,
+                ),
                 ...widget.order.orderProducts
                     .map((op) => OrderProductItem(orderProduct: op))
                     .toList(),
@@ -105,17 +110,38 @@ class _OrderDetailModalState extends State<OrderDetailModal> {
                     ],
                   ),
                 ),
-                const Divider(),
+                const SizedBox(height: 20),
+                Container(
+                  height: 0.1,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        width: 1,
+                        color: Colors.grey.shade300,
+                      ),
+                    ),
+                  ),
+                ),
+                //const SizedBox(height: 10),
                 OrderInfoTile(
                   label: 'Endereço de entrega : ',
                   info: widget.order.address,
                 ),
-                const Divider(),
+                Container(
+                  height: 0.1,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        width: 1,
+                        color: Colors.grey.shade300,
+                      ),
+                    ),
+                  ),
+                ),
                 OrderInfoTile(
                   label: 'Forma de Pagamento: ',
                   info: widget.order.paymentTypeModel.name,
                 ),
-                const Divider(),
                 const SizedBox(height: 20),
                 OrderBottomBar(
                   controller: widget.controller,

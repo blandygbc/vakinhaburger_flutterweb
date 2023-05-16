@@ -52,7 +52,7 @@ class BaseLayout extends StatelessWidget {
                     const menu.MenuBar(),
                     Expanded(
                       child: Container(
-                        padding: const EdgeInsets.only(left: 5),
+                        padding: const EdgeInsets.only(left: 5, top: 40),
                         decoration: BoxDecoration(
                           color: Colors.grey.shade100,
                           borderRadius: const BorderRadius.only(

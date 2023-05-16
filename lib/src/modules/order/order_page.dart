@@ -76,33 +76,30 @@ class _OrderPageState extends State<OrderPage> with Loader, Messages {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
-        return Container(
-          padding: const EdgeInsets.only(top: 40),
-          child: Column(
-            children: [
-              OrderHeader(
-                controller: controller,
+        return Column(
+          children: [
+            OrderHeader(
+              controller: controller,
+            ),
+            const SizedBox(height: 50),
+            Expanded(
+              child: Observer(
+                builder: (_) {
+                  return GridView.builder(
+                    itemCount: controller.orders.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                      mainAxisExtent: 91,
+                      maxCrossAxisExtent: 600,
+                    ),
+                    itemBuilder: (context, index) {
+                      return OrderItem(order: controller.orders[index]);
+                    },
+                  );
+                },
               ),
-              const SizedBox(height: 50),
-              Expanded(
-                child: Observer(
-                  builder: (_) {
-                    return GridView.builder(
-                      itemCount: controller.orders.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        mainAxisExtent: 91,
-                        maxCrossAxisExtent: 600,
-                      ),
-                      itemBuilder: (context, index) {
-                        return OrderItem(order: controller.orders[index]);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );

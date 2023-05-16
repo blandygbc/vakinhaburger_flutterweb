@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/size_extensions.dart';
+import '../styles/colors_app.dart';
 import '../styles/text_styles.dart';
 
 class BaseHeader extends StatelessWidget {
@@ -38,7 +40,7 @@ class BaseHeader extends StatelessWidget {
                     contentPadding: EdgeInsets.zero,
                     prefixIcon: Icon(
                       Icons.search,
-                      size: _getIconSearchSize(constrains.maxWidth),
+                      size: _getIconSize(constrains.maxWidth),
                     ),
                     label: Text(
                       'Buscar',
@@ -54,27 +56,66 @@ class BaseHeader extends StatelessWidget {
             Container(
               width: constrains.maxWidth * .65,
               padding: const EdgeInsets.all(8),
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: context.textStyles.title.copyWith(
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2,
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    title.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: context.textStyles.title,
+                  ),
+                  Container(
+                    width: title.length.toDouble() * 15,
+                    height: 8,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.black,
+                          width: 3,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Visibility(
               visible: addButton,
-              child: SizedBox(
-                width: constrains.maxWidth * .15,
-                height: 48,
-                child: OutlinedButton.icon(
-                  onPressed: buttonPressed,
-                  icon: Icon(
-                    Icons.add,
-                    size: constrains.maxWidth * 0.02,
+              child: Visibility(
+                visible: constrains.maxWidth > 950,
+                replacement: Tooltip(
+                  message: buttonLabel,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: context.colors.primary),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    width: 48,
+                    height: 48,
+                    child: IconButton(
+                      onPressed: buttonPressed,
+                      icon: Icon(
+                        Icons.add,
+                        color: context.colors.primary,
+                      ),
+                    ),
                   ),
-                  label: Text(buttonLabel),
+                ),
+                child: SizedBox(
+                  width: constrains.maxWidth * .15,
+                  height: 48,
+                  child: OutlinedButton.icon(
+                    onPressed: buttonPressed,
+                    icon: Icon(
+                      Icons.add,
+                      size: _getIconSize(constrains.maxWidth),
+                    ),
+                    label: Text(buttonLabel),
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: context.colors.primary,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -84,7 +125,7 @@ class BaseHeader extends StatelessWidget {
     );
   }
 
-  double _getIconSearchSize(double maxWidth) {
+  double _getIconSize(double maxWidth) {
     if (maxWidth < 600) {
       return maxWidth * 0.04;
     } else if (maxWidth < 800) {

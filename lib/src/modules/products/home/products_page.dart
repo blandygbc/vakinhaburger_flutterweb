@@ -1,4 +1,3 @@
-import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -67,46 +66,42 @@ class _ProductsPageState extends State<ProductsPage> with Loader, Messages {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 40),
-      child: Column(
-        children: [
-          BaseHeader(
-            title: 'ADMINISTRAR PRODUTOS',
-            buttonLabel: 'ADICIONAR',
-            buttonPressed: controller.addProduct,
-            searchChange: (value) {
-              debouncer.call(() {
-                controller.filterByName(value);
-              });
-            },
-          ),
-          const SizedBox(height: 50),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Observer(
-                builder: (_) {
-                  return GridView.builder(
-                    itemCount: controller.products.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      mainAxisExtent: 280,
-                      maxCrossAxisExtent: 280,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 10,
-                    ),
-                    itemBuilder: (context, index) {
-                      final product = controller.products[index];
-                      return ProductItem(product: product);
-                    },
-                  );
-                },
-              ),
+    return Column(
+      children: [
+        BaseHeader(
+          title: 'ADMINISTRAR PRODUTOS',
+          buttonLabel: 'ADICIONAR',
+          buttonPressed: controller.addProduct,
+          searchChange: (value) {
+            debouncer.call(() {
+              controller.filterByName(value);
+            });
+          },
+        ),
+        const SizedBox(height: 40),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Observer(
+              builder: (_) {
+                return GridView.builder(
+                  itemCount: controller.products.length,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    mainAxisExtent: 280,
+                    maxCrossAxisExtent: 280,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    final product = controller.products[index];
+                    return ProductItem(product: product);
+                  },
+                );
+              },
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

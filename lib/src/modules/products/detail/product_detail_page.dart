@@ -89,7 +89,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   Widget build(BuildContext context) {
     //final widthButtonAction = context.percentWidth(.4);
     return Container(
-      padding: const EdgeInsets.all(40),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -98,17 +98,30 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      '${widget.productId != null ? 'ALTERAR' : 'ADICIONAR'} PRODUTO',
-                      textAlign: TextAlign.center,
-                      style: context.textStyles.title.copyWith(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 2,
-                      ),
+                    child: Column(
+                      children: [
+                        Text(
+                          '${widget.productId != null ? 'ALTERAR' : 'ADICIONAR'} PRODUTO',
+                          textAlign: TextAlign.center,
+                          style: context.textStyles.title,
+                        ),
+                        Container(
+                          width: 250,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.black,
+                                width: 3,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pop(context),
                     icon: const Icon(Icons.close),
                   ),
                 ],
@@ -280,7 +293,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     ),
                   ),
                 ],
-              )
+              ),
+              const SizedBox(height: 40),
             ],
           ),
         ),

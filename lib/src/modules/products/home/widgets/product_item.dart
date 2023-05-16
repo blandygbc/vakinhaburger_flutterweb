@@ -17,7 +17,8 @@ class ProductItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
-      elevation: 10,
+      elevation: 5,
+      shadowColor: Colors.black.withOpacity(.35),
       child: LayoutBuilder(
         builder: (_, constraints) {
           return Column(

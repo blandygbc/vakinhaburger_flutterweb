@@ -23,19 +23,19 @@ class OrderItem extends StatelessWidget {
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.grey),
+                border: Border.all(color: Colors.grey.shade300, width: 2),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Text(
-                      'Peido: ',
-                      style: textStyles.bold,
+                      'Pedido: ',
+                      style: textStyles.medium,
                     ),
                     Text(
                       '${order.id}',
-                      style: textStyles.extraBold,
+                      style: textStyles.extraBold.copyWith(fontSize: 16),
                     ),
                     Expanded(
                       child: Text(
@@ -54,7 +54,7 @@ class OrderItem extends StatelessWidget {
               ),
             ),
           ),
-          VerticalDivider(
+          const VerticalDivider(
             thickness: 1,
             color: Colors.grey,
           )

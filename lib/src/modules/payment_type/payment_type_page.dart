@@ -93,40 +93,36 @@ class _PaymentTypePageState extends State<PaymentTypePage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 40),
-      child: Column(
-        children: [
-          PaymentTypeHeader(controller: controller),
-          const SizedBox(height: 50),
-          Expanded(
-            child: Observer(
-              builder: (_) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: GridView.builder(
-                    itemCount: controller.paymentTypes.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
-                      mainAxisExtent: 160,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      maxCrossAxisExtent: 680,
-                    ),
-                    itemBuilder: (context, index) {
-                      final paymentTypeModel = controller.paymentTypes[index];
-                      return PaymentTypeItem(
-                        payment: paymentTypeModel,
-                        controller: controller,
-                      );
-                    },
+    return Column(
+      children: [
+        PaymentTypeHeader(controller: controller),
+        const SizedBox(height: 50),
+        Expanded(
+          child: Observer(
+            builder: (_) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: GridView.builder(
+                  itemCount: controller.paymentTypes.length,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    mainAxisExtent: 170,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    maxCrossAxisExtent: 680,
                   ),
-                );
-              },
-            ),
+                  itemBuilder: (context, index) {
+                    final paymentTypeModel = controller.paymentTypes[index];
+                    return PaymentTypeItem(
+                      payment: paymentTypeModel,
+                      controller: controller,
+                    );
+                  },
+                ),
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

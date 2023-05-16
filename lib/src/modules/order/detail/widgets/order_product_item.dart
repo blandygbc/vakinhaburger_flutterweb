@@ -16,8 +16,12 @@ class OrderProductItem extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.grey.shade300,
+            width: 2,
+          ),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
